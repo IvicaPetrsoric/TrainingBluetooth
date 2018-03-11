@@ -16,6 +16,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barTintColor = .tealColor
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+//        if #available(iOS 11.0, *) {
+//            UINavigationBar.appearance().prefersLargeTitles = true
+//            UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+//        }
+
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().barTintColor = .tealColor
+        UITabBar.appearance().tintColor = .white
+
+        
+        window?.rootViewController = MainTabBarViewController()
+        
         return true
     }
 

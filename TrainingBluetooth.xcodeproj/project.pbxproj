@@ -7,21 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E355BC62053FA6C00A1427D /* PeripheralBLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E355BC52053FA6C00A1427D /* PeripheralBLEController.swift */; };
+		9E355BC82054445E00A1427D /* PeripheralViewInputAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E355BC72054445E00A1427D /* PeripheralViewInputAccessory.swift */; };
+		9E355BCA20544D5E00A1427D /* PeripheralViewTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E355BC920544D5E00A1427D /* PeripheralViewTextView.swift */; };
 		9E3CFCBA2052901800A12602 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CFCB92052901800A12602 /* AppDelegate.swift */; };
-		9E3CFCBC2052901800A12602 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CFCBB2052901800A12602 /* ViewController.swift */; };
 		9E3CFCBF2052901800A12602 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3CFCBD2052901800A12602 /* Main.storyboard */; };
 		9E3CFCC12052901800A12602 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E3CFCC02052901800A12602 /* Assets.xcassets */; };
 		9E3CFCC42052901800A12602 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3CFCC22052901800A12602 /* LaunchScreen.storyboard */; };
+		9E3CFCCD2052913700A12602 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CFCCC2052913700A12602 /* MainTabBarViewController.swift */; };
+		9E3CFCCF205292D500A12602 /* CentralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CFCCE205292D500A12602 /* CentralViewController.swift */; };
+		9E3CFCD1205292E500A12602 /* PeripheralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CFCD0205292E500A12602 /* PeripheralViewController.swift */; };
+		9E3CFCDC20529DED00A12602 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CFCDB20529DED00A12602 /* Extension.swift */; };
+		9E3CFCE02052AAE800A12602 /* CentralDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CFCDF2052AAE800A12602 /* CentralDetailsView.swift */; };
+		9E3CFCE22052B30B00A12602 /* CentralBLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CFCE12052B30B00A12602 /* CentralBLEController.swift */; };
+		9E3CFCE42052B57800A12602 /* SetupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CFCE32052B57800A12602 /* SetupData.swift */; };
+		9E3CFCE62052F1DD00A12602 /* PeripheralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CFCE52052F1DD00A12602 /* PeripheralView.swift */; };
+		9E3CFCE82052F24100A12602 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CFCE72052F24100A12602 /* BaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E355BC52053FA6C00A1427D /* PeripheralBLEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralBLEController.swift; sourceTree = "<group>"; };
+		9E355BC72054445E00A1427D /* PeripheralViewInputAccessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralViewInputAccessory.swift; sourceTree = "<group>"; };
+		9E355BC920544D5E00A1427D /* PeripheralViewTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralViewTextView.swift; sourceTree = "<group>"; };
 		9E3CFCB62052901800A12602 /* TrainingBluetooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainingBluetooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3CFCB92052901800A12602 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9E3CFCBB2052901800A12602 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E3CFCBE2052901800A12602 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E3CFCC02052901800A12602 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E3CFCC32052901800A12602 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E3CFCC52052901800A12602 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E3CFCCC2052913700A12602 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		9E3CFCCE205292D500A12602 /* CentralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralViewController.swift; sourceTree = "<group>"; };
+		9E3CFCD0205292E500A12602 /* PeripheralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralViewController.swift; sourceTree = "<group>"; };
+		9E3CFCDB20529DED00A12602 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		9E3CFCDF2052AAE800A12602 /* CentralDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralDetailsView.swift; sourceTree = "<group>"; };
+		9E3CFCE12052B30B00A12602 /* CentralBLEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralBLEController.swift; sourceTree = "<group>"; };
+		9E3CFCE32052B57800A12602 /* SetupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupData.swift; sourceTree = "<group>"; };
+		9E3CFCE52052F1DD00A12602 /* PeripheralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralView.swift; sourceTree = "<group>"; };
+		9E3CFCE72052F24100A12602 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +77,48 @@
 			isa = PBXGroup;
 			children = (
 				9E3CFCB92052901800A12602 /* AppDelegate.swift */,
-				9E3CFCBB2052901800A12602 /* ViewController.swift */,
-				9E3CFCBD2052901800A12602 /* Main.storyboard */,
-				9E3CFCC02052901800A12602 /* Assets.xcassets */,
-				9E3CFCC22052901800A12602 /* LaunchScreen.storyboard */,
+				9E3CFCCC2052913700A12602 /* MainTabBarViewController.swift */,
+				9E3CFCE32052B57800A12602 /* SetupData.swift */,
+				9E3CFCD52052954F00A12602 /* Central BLE */,
+				9E3CFCD62052955900A12602 /* PeripheralBLE */,
+				9E3CFCCB2052910000A12602 /* Supporting Files */,
 				9E3CFCC52052901800A12602 /* Info.plist */,
 			);
 			path = TrainingBluetooth;
+			sourceTree = "<group>";
+		};
+		9E3CFCCB2052910000A12602 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E3CFCDB20529DED00A12602 /* Extension.swift */,
+				9E3CFCE72052F24100A12602 /* BaseView.swift */,
+				9E3CFCBD2052901800A12602 /* Main.storyboard */,
+				9E3CFCC02052901800A12602 /* Assets.xcassets */,
+				9E3CFCC22052901800A12602 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9E3CFCD52052954F00A12602 /* Central BLE */ = {
+			isa = PBXGroup;
+			children = (
+				9E3CFCCE205292D500A12602 /* CentralViewController.swift */,
+				9E3CFCDF2052AAE800A12602 /* CentralDetailsView.swift */,
+				9E3CFCE12052B30B00A12602 /* CentralBLEController.swift */,
+			);
+			path = "Central BLE";
+			sourceTree = "<group>";
+		};
+		9E3CFCD62052955900A12602 /* PeripheralBLE */ = {
+			isa = PBXGroup;
+			children = (
+				9E3CFCD0205292E500A12602 /* PeripheralViewController.swift */,
+				9E3CFCE52052F1DD00A12602 /* PeripheralView.swift */,
+				9E355BC72054445E00A1427D /* PeripheralViewInputAccessory.swift */,
+				9E355BC920544D5E00A1427D /* PeripheralViewTextView.swift */,
+				9E355BC52053FA6C00A1427D /* PeripheralBLEController.swift */,
+			);
+			path = PeripheralBLE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +193,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E3CFCBC2052901800A12602 /* ViewController.swift in Sources */,
+				9E3CFCD1205292E500A12602 /* PeripheralViewController.swift in Sources */,
+				9E3CFCCD2052913700A12602 /* MainTabBarViewController.swift in Sources */,
+				9E3CFCCF205292D500A12602 /* CentralViewController.swift in Sources */,
+				9E3CFCE22052B30B00A12602 /* CentralBLEController.swift in Sources */,
+				9E355BC82054445E00A1427D /* PeripheralViewInputAccessory.swift in Sources */,
+				9E355BC62053FA6C00A1427D /* PeripheralBLEController.swift in Sources */,
+				9E3CFCE02052AAE800A12602 /* CentralDetailsView.swift in Sources */,
+				9E3CFCDC20529DED00A12602 /* Extension.swift in Sources */,
 				9E3CFCBA2052901800A12602 /* AppDelegate.swift in Sources */,
+				9E3CFCE82052F24100A12602 /* BaseView.swift in Sources */,
+				9E3CFCE42052B57800A12602 /* SetupData.swift in Sources */,
+				9E355BCA20544D5E00A1427D /* PeripheralViewTextView.swift in Sources */,
+				9E3CFCE62052F1DD00A12602 /* PeripheralView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +345,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74PDM76YJS;
 				INFOPLIST_FILE = TrainingBluetooth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IvicaPetrsoric.TrainingBluetooth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +361,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74PDM76YJS;
 				INFOPLIST_FILE = TrainingBluetooth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IvicaPetrsoric.TrainingBluetooth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
