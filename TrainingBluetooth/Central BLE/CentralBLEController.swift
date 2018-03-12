@@ -15,7 +15,7 @@ protocol CentralBLEControllerDelegate: class {
 
 class CentralBLEController: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
-    weak var delegate: CentralViewController?
+    weak var delegate: CentralCollectionViewController?
     
     private var centralManager: CBCentralManager?
     private var discoveredPheriperal: CBPeripheral?

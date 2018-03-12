@@ -8,7 +8,9 @@
 
 import UIKit
 
-class CentralViewController: UIViewController, CentralBLEControllerDelegate {
+class CentralCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, CentralBLEControllerDelegate {
+    
+    let cellId = "cellId"
     
     let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
@@ -22,15 +24,25 @@ class CentralViewController: UIViewController, CentralBLEControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        collectionView?.backgroundColor = .white
         navigationItem.title = "Central"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator)
-        
-        setupViews()
-        
+                
         centralBLEcontroller.delegate = self
         centralBLEcontroller.startCentralManager()
+        
+        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        cell.backgroundColor = .red
+        return cell
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -38,17 +50,6 @@ class CentralViewController: UIViewController, CentralBLEControllerDelegate {
         centralBLEcontroller.stopScanCentralManager()
     }
     
-    private func setupViews() {
-        let detailsView = CentralDetailsView()
-        detailsView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(detailsView)
-        
-        detailsView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        detailsView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        detailsView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        detailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    }
     
     func recivedDataFromPheriperal() {
         print("RECIVED DATA FINISHED!!!!")

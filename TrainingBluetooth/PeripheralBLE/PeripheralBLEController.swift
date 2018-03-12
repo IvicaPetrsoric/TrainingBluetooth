@@ -27,11 +27,13 @@ class PeripheralBLEController: NSObject, CBPeripheralManagerDelegate {
     private var peripheralManager: CBPeripheralManager?
     private var transferCharacteristic: CBMutableCharacteristic?
     
-    fileprivate var dataToSend: Data?
+    private var dataToSend: Data?
     private var sendDataIndex: Int?
     
     // First up, check if we're meant to be sending an EOM
     private var sendingEOM = false
+    
+    private var recivedDataToSend: String?
     
     func startPeripheralManager() {
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
@@ -44,8 +46,9 @@ class PeripheralBLEController: NSObject, CBPeripheralManagerDelegate {
         peripheralManager?.stopAdvertising()
     }
     
-    func startAdvertising(send: Bool) {
+    func startAdvertising(send: Bool, dataToSend: String = String()) {
         if send {
+            recivedDataToSend = dataToSend
             peripheralManager?.startAdvertising([CBAdvertisementDataServiceUUIDsKey: [transferServiceUUID]])
         } else {
             peripheralManager?.stopAdvertising()
@@ -92,7 +95,9 @@ class PeripheralBLEController: NSObject, CBPeripheralManagerDelegate {
         print("Central subscribed to characteristic")
         
         // prepare data
-        dataToSend = "MArko petko".data(using: String.Encoding.utf8)
+//        dataToSend = "MArko petko".data(using: String.Encoding.utf8)
+        guard let sendThisData = recivedDataToSend else { return }
+        dataToSend = sendThisData.data(using: String.Encoding.utf8)      
         
         // reset index
         sendDataIndex = 0

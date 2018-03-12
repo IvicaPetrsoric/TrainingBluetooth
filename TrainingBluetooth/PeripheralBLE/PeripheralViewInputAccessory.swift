@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PeripheralViewInputAccessoryDelegate: class {
-    func submitDataForSending()
+    func submitDataForSending(text: String)
 }
 
 class PeripheralViewInputAccessory: BaseView {
@@ -37,6 +37,15 @@ class PeripheralViewInputAccessory: BaseView {
         return tv
     }()
     
+    let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.activityIndicatorViewStyle = .white
+        indicator.color = .tealColor
+        indicator.stopAnimating()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
+    
     let submitButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "send").withRenderingMode(.alwaysOriginal), for: .normal)
@@ -53,11 +62,12 @@ class PeripheralViewInputAccessory: BaseView {
     override func setupViews() {
         backgroundColor = UIColor.rgb(red: 230, green: 230, blue: 230)
         
-        self.frame.origin.y = 100
+        autoresizingMask = .flexibleHeight
         
         addSubview(submitImage)
         addSubview(submitButton)
         addSubview(submitTextView)
+        addSubview(activityIndicator)
         
         submitImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
         submitImage.topAnchor.constraint(equalTo: topAnchor, constant: 4).isActive = true
@@ -65,20 +75,33 @@ class PeripheralViewInputAccessory: BaseView {
         submitImage.widthAnchor.constraint(equalToConstant: 42).isActive = true
         
         submitButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
-        submitButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        submitButton.topAnchor.constraint(equalTo: topAnchor, constant: 4).isActive = true
         submitButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         submitButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
         
+        submitTextView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+        submitTextView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
         submitTextView.leftAnchor.constraint(equalTo: submitImage.rightAnchor, constant: 8).isActive = true
         submitTextView.rightAnchor.constraint(equalTo: submitButton.leftAnchor, constant: -8).isActive = true
-        submitTextView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        submitTextView.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        
+        activityIndicator.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
+        activityIndicator.topAnchor.constraint(equalTo: topAnchor, constant: 4).isActive = true
+        activityIndicator.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        activityIndicator.widthAnchor.constraint(equalToConstant: 44).isActive = true
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return .zero
     }
     
     @objc func handleSubmit() {
-        print("Send")
-        delegate?.submitDataForSending()
-        submitTextView.showPlaceHolderLabel()
+        guard let textToSend = submitTextView.text, textToSend.count > 0 else { return }
+        
+//        activityIndicator.startAnimating()
+//        submitButton.isHidden = true
+
+        delegate?.submitDataForSending(text: textToSend)
+//        submitTextView.showPlaceHolderLabel()
     }
     
     @objc func handleCamera() {
