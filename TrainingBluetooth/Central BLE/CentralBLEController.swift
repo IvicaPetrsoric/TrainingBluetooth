@@ -21,7 +21,7 @@ class CentralBLEController: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     private var discoveredPheriperal: CBPeripheral?
     
     private var recivedData = NSMutableData()
-    private var topRSSI = -35
+    private var topRSSI = -50
     
     func startCentralManager(){
         centralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
@@ -63,7 +63,7 @@ class CentralBLEController: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         print("Discovered \(peripheral.name ?? "") at \(RSSI)")
         
-        if RSSI.intValue > topRSSI{
+        if RSSI.intValue < topRSSI{
             print("Device not at correct range")
             return
         }

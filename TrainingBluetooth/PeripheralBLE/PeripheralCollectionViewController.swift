@@ -12,7 +12,9 @@ class PeripheralCollectionViewController: UICollectionViewController, UICollecti
     
     var posts = [Post]()
     
+//    func submitDataForSending(text: String) {
     func submitDataForSending(text: String) {
+
         print("Submiting data")
 //        postSended()
         
@@ -63,8 +65,6 @@ class PeripheralCollectionViewController: UICollectionViewController, UICollecti
         
         collectionView?.contentInset = UIEdgeInsetsMake(0, 0, -50, 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, -50, 0)
-
-
         collectionView?.register(PeripheralCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
         setupViews()
@@ -73,9 +73,7 @@ class PeripheralCollectionViewController: UICollectionViewController, UICollecti
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
-        
-        //        inputAccessoryView?.layoutSubviews()
-        
+                
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
     }

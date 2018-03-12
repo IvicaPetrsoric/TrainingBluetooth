@@ -88,6 +88,15 @@ class PeripheralViewInputAccessory: BaseView {
         activityIndicator.topAnchor.constraint(equalTo: topAnchor, constant: 4).isActive = true
         activityIndicator.heightAnchor.constraint(equalToConstant: 44).isActive = true
         activityIndicator.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        
+//        let attributedText = NSMutableAttributedString(string: "", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14)])
+//
+//        let attachment = NSTextAttachment()
+//        attachment.image = UIImage(named: "send")
+//        attachment.bounds = CGRect(x: 0, y: -2, width: 12, height: 12)
+//        attributedText.append(NSAttributedString(attachment: attachment))
+//
+//        submitTextView.attributedText = attributedText
     }
     
     override var intrinsicContentSize: CGSize {
@@ -97,6 +106,9 @@ class PeripheralViewInputAccessory: BaseView {
     @objc func handleSubmit() {
         guard let textToSend = submitTextView.text, textToSend.count > 0 else { return }
         
+//        guard let textToSend = submitTextView.attributedText,  textToSend.length > 0 else { return }
+
+//        print(textToSend.length)
 //        activityIndicator.startAnimating()
 //        submitButton.isHidden = true
 
