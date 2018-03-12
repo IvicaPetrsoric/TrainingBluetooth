@@ -54,8 +54,10 @@ class PeripheralCollectionViewCell: BaseCell {
     override func setupViews() {        
         addSubview(textView)
         
-        textView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+//        textView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
         textView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
+//        textView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
         textView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
         textView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
     }

@@ -17,8 +17,11 @@ class MainTabBarViewController: UITabBarController {
     }
     
     private func setupViewsController() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
         let centralViewController = templateNavController(unselectedImage: #imageLiteral(resourceName: "first"), selectedImage: #imageLiteral(resourceName: "first"),
-                                                          collectionRootViewController: CentralCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout()))
+                                                          collectionRootViewController: CentralCollectionViewController(collectionViewLayout: layout))
+        
         let peripheralViewController = templateNavController(unselectedImage: #imageLiteral(resourceName: "second"), selectedImage: #imageLiteral(resourceName: "second"),
                                                              collectionRootViewController: PeripheralCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout()))
         

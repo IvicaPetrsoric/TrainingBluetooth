@@ -33,3 +33,20 @@ extension UINavigationController {
     }
     
 }
+
+extension UIViewController{
+    
+    enum alertMessage: String{
+        case errorWithSendingPost = "Check your Bluetooth connection!"
+//        case errorWebAndURL = "Ooops, check your Web connection and Feed URL!"
+//        case errorFeedExsist = "You already have this Feed!"
+//        case errorWithParsing = "Couldn't read that Feed, check again if URL was correct!"
+    }
+    
+    func showAllert(message: String){
+        let alert = UIAlertController(title: "Notice", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+}

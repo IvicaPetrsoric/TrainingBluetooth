@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E2FA7402056DA8D00EAF503 /* CentralCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FA73F2056DA8D00EAF503 /* CentralCollectionViewCell.swift */; };
 		9E355BC62053FA6C00A1427D /* PeripheralBLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E355BC52053FA6C00A1427D /* PeripheralBLEController.swift */; };
 		9E355BC82054445E00A1427D /* PeripheralViewInputAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E355BC72054445E00A1427D /* PeripheralViewInputAccessory.swift */; };
 		9E355BCA20544D5E00A1427D /* PeripheralViewTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E355BC920544D5E00A1427D /* PeripheralViewTextView.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E2FA73F2056DA8D00EAF503 /* CentralCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralCollectionViewCell.swift; sourceTree = "<group>"; };
 		9E355BC52053FA6C00A1427D /* PeripheralBLEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralBLEController.swift; sourceTree = "<group>"; };
 		9E355BC72054445E00A1427D /* PeripheralViewInputAccessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralViewInputAccessory.swift; sourceTree = "<group>"; };
 		9E355BC920544D5E00A1427D /* PeripheralViewTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralViewTextView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				9E3CFCCE205292D500A12602 /* CentralCollectionViewController.swift */,
+				9E2FA73F2056DA8D00EAF503 /* CentralCollectionViewCell.swift */,
 				9E3CFCE12052B30B00A12602 /* CentralBLEController.swift */,
 			);
 			path = "Central BLE";
@@ -202,6 +205,7 @@
 				9E642AE12055B9E600625551 /* Post.swift in Sources */,
 				9E355BC82054445E00A1427D /* PeripheralViewInputAccessory.swift in Sources */,
 				9E642ADF2055B6E800625551 /* BaseCell.swift in Sources */,
+				9E2FA7402056DA8D00EAF503 /* CentralCollectionViewCell.swift in Sources */,
 				9E355BC62053FA6C00A1427D /* PeripheralBLEController.swift in Sources */,
 				9E3CFCDC20529DED00A12602 /* Extension.swift in Sources */,
 				9E642ADB2055AF6600625551 /* PeripheralCollectionViewController.swift in Sources */,

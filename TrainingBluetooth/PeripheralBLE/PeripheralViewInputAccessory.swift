@@ -103,17 +103,28 @@ class PeripheralViewInputAccessory: BaseView {
         return .zero
     }
     
+    func showActivityIndicator(show: Bool) {
+        if show {
+            activityIndicator.startAnimating()
+            submitButton.isHidden = true
+        } else {
+            activityIndicator.stopAnimating()
+            submitButton.isHidden = false
+        }
+    }
+    
+    func postSuccessfullySended() {
+        submitTextView.text = nil
+        submitTextView.showPlaceHolderLabel()
+    }
+    
     @objc func handleSubmit() {
         guard let textToSend = submitTextView.text, textToSend.count > 0 else { return }
-        
 //        guard let textToSend = submitTextView.attributedText,  textToSend.length > 0 else { return }
 
-//        print(textToSend.length)
-//        activityIndicator.startAnimating()
-//        submitButton.isHidden = true
+        showActivityIndicator(show: true)
 
         delegate?.submitDataForSending(text: textToSend)
-//        submitTextView.showPlaceHolderLabel()
     }
     
     @objc func handleCamera() {

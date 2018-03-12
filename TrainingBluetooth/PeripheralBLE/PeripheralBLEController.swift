@@ -9,7 +9,14 @@
 import UIKit
 import CoreBluetooth
 
+protocol PeripheralBLEControllerDelegate: class {
+    func postSended(_ success: Bool)
+    func bleAvailabel(status: Bool)
+}
+
 class PeripheralBLEController: NSObject, CBPeripheralManagerDelegate {
+    
+    weak var delegate: PeripheralBLEControllerDelegate?
    
     private var peripheralManager: CBPeripheralManager?
     private var transferCharacteristic: CBMutableCharacteristic?
@@ -43,10 +50,13 @@ class PeripheralBLEController: NSObject, CBPeripheralManagerDelegate {
     }
     
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
+        delegate?.bleAvailabel(status: false)
+
         switch peripheral.state {
         case .poweredOn:
             print("Peripheral state: BLE on!")
             
+            delegate?.bleAvailabel(status: true)
             // start with CBMutableCharacteristics
             transferCharacteristic = CBMutableCharacteristic(type: transferCharacteristicUUID, properties: .notify, value: nil, permissions: .readable)
             
@@ -62,6 +72,8 @@ class PeripheralBLEController: NSObject, CBPeripheralManagerDelegate {
 
         case .poweredOff:
             print("Peripheral state: BLE off!")
+            print("Ne salji")
+
             
         case .resetting:
             print("Peripheral state: BLE resetting!")
@@ -109,7 +121,12 @@ class PeripheralBLEController: NSObject, CBPeripheralManagerDelegate {
                 
                 // fisnish with sending
                 startAdvertising(send: false)
+                
+                delegate?.postSended(true)
+
             } else {
+                delegate?.postSended(false)
+
 //                  It didn't send, so we'll exit and wait for peripheralManagerIsReadyToUpdateSubscribers to call sendData again
                 return
             }

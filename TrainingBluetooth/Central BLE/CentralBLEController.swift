@@ -9,7 +9,7 @@
 import CoreBluetooth
 
 protocol CentralBLEControllerDelegate: class {
-    func recivedDataFromPheriperal()
+    func recivedDataFromPheriperal(post: Post)
 }
 
 
@@ -148,10 +148,11 @@ class CentralBLEController: NSObject, CBCentralManagerDelegate, CBPeripheralDele
         // check if end of reciveing data
         if stringFromData.isEqual("EOM") {
             // all data collected
-            delegate?.recivedDataFromPheriperal()
-//            textView.text = String(data: recivedData.copy() as! Data, encoding: String.Encoding.utf8)
-            let test = String(data: recivedData.copy() as! Data, encoding: String.Encoding.utf8)
-            print(test ?? "")
+            let recivedText = String(data: recivedData.copy() as! Data, encoding: String.Encoding.utf8)
+//            print(test ?? "")
+            
+            let newPost = Post(text: recivedText, image: nil)
+            delegate?.recivedDataFromPheriperal(post: newPost)
             
             // cancel subscription to characteristic and pheriperal
             peripheral.setNotifyValue(false, for: characteristic)
