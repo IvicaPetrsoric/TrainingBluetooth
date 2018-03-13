@@ -4,10 +4,11 @@ TrainingBluetooth is a simple ChatApp based on Bluetooth.
 Pair two devices and act as central/peripheral and send masseges to each other.
 
 Central screen:
-- Shows a collectionView with recived messages
+- Shows a collectionView with recived messages\n 
+ <img src="images/central.png" widht= 150 height = 300 />
 - Info button for status of  Bluetooth connection, device and RSSI value
 
-- <img src="images/central.png" widht= 150 height = 300 />
+
 
 Peripheral screen:
 - Shows a collectionView with sended messages
