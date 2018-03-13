@@ -12,7 +12,6 @@ protocol CentralBLEControllerDelegate: class {
     func recivedDataFromPheriperal(post: Post)
 }
 
-
 class CentralBLEController: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     weak var delegate: CentralCollectionViewController?
@@ -156,7 +155,6 @@ class CentralBLEController: NSObject, CBCentralManagerDelegate, CBPeripheralDele
         if stringFromData.isEqual("EOM") {
             // all data collected
             let recivedText = String(data: recivedData.copy() as! Data, encoding: String.Encoding.utf8)
-//            print(test ?? "")
             
             let newPost = Post(text: recivedText, image: nil)
             delegate?.recivedDataFromPheriperal(post: newPost)
@@ -227,7 +225,6 @@ class CentralBLEController: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     fileprivate func cancelPeripheralConnection() {
         centralManager?.cancelPeripheralConnection(discoveredPheriperal!)
     }
-    
-    
+   
     
 }

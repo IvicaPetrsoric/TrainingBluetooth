@@ -31,7 +31,6 @@ class CentralCollectionViewController: UICollectionViewController, UICollectionV
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
         
         centralBLEcontroller.delegate = self
-//        centralBLEcontroller.startCentralManager()
         
         collectionView?.register(CentralCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
     }

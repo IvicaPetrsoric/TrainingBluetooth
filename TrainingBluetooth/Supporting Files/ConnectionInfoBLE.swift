@@ -77,7 +77,6 @@ class ConnectionInfoBLE: UIView {
         label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 0
-//        label.backgroundColor = .red
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

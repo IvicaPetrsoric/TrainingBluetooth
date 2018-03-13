@@ -31,8 +31,6 @@ class PeripheralBLEController: NSObject, CBPeripheralManagerDelegate {
     
     func startPeripheralManager() {
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
-//        dataToSend = "MArko petko".data(using: String.Encoding.utf8)
-//        print("Data to send: \(dataToSend?.count)")
     }
     
     // if view disapeared ot text changed
@@ -94,7 +92,6 @@ class PeripheralBLEController: NSObject, CBPeripheralManagerDelegate {
         print("Central subscribed to characteristic")
         
         // prepare data
-//        dataToSend = "MArko petko".data(using: String.Encoding.utf8)
         guard let sendThisData = recivedDataToSend else { return }
         dataToSend = sendThisData.data(using: String.Encoding.utf8)      
         

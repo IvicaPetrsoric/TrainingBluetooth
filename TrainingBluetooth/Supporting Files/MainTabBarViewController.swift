@@ -20,13 +20,12 @@ class MainTabBarViewController: UITabBarController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let centralViewController = templateNavController(unselectedImage: #imageLiteral(resourceName: "first"), selectedImage: #imageLiteral(resourceName: "first"),
-                                                          collectionRootViewController: CentralCollectionViewController(collectionViewLayout: layout))
+                                                          collectionRootVC: CentralCollectionViewController(collectionViewLayout: layout))
         
         let peripheralViewController = templateNavController(unselectedImage: #imageLiteral(resourceName: "second"), selectedImage: #imageLiteral(resourceName: "second"),
-                                                             collectionRootViewController: PeripheralCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout()))
+                                                             collectionRootVC: PeripheralCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout()))
         
         viewControllers = [centralViewController, peripheralViewController]
-//        viewControllers = [peripheralViewController, centralViewController]
         
         //  modify tab bar insets
         guard let items = tabBar.items else { return }
@@ -36,7 +35,7 @@ class MainTabBarViewController: UITabBarController {
         }
     }
     
-    private func templateNavController(unselectedImage: UIImage, selectedImage: UIImage, collectionRootViewController collectionRootVC: UICollectionViewController) -> UINavigationController {
+    private func templateNavController(unselectedImage: UIImage, selectedImage: UIImage, collectionRootVC: UICollectionViewController) -> UINavigationController {
         let navController = UINavigationController(rootViewController: collectionRootVC)
         navController.tabBarItem.image = unselectedImage.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         navController.tabBarItem.selectedImage = selectedImage

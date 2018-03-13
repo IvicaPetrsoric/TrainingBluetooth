@@ -38,9 +38,6 @@ extension UIViewController{
     
     enum alertMessage: String{
         case errorWithSendingPost = "Check your Bluetooth connection!"
-//        case errorWebAndURL = "Ooops, check your Web connection and Feed URL!"
-//        case errorFeedExsist = "You already have this Feed!"
-//        case errorWithParsing = "Couldn't read that Feed, check again if URL was correct!"
     }
     
     func showAllert(message: String){

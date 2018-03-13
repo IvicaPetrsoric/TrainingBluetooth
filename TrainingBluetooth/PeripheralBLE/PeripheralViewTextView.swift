@@ -42,8 +42,6 @@ class PeripheralViewTextView: UITextView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-
 }
 
 
