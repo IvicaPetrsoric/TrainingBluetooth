@@ -103,8 +103,6 @@ class ConnectionInfoBLE: UIView {
             rightLabels.text = "Bad signal \n / \n\(RSSI)"
         }
         else {
-            print(connectedTo)
-            print(RSSI)
             rightLabels.text = "Connected\n\(connectedTo)\n\(RSSI)"
         }
     }
