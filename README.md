@@ -1,6 +1,6 @@
 # TrainingBluetooth
 
-TrainingBluetooth is a ChatApp based on Bluetooth.
+TrainingBluetooth is a Chat App based on Bluetooth.
 Pair two devices and act as central/peripheral and send masseges to each other.
 Whole App is made without Storyboards, only code with AutoLayout.
 #
