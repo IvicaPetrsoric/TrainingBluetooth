@@ -70,7 +70,6 @@ class PeripheralCollectionViewController: UICollectionViewController, UICollecti
         collectionView?.keyboardDismissMode = .interactive
         collectionView?.alwaysBounceVertical = true
         
-//        let height = (50 + (tabBarController?.tabBar.frame.size.height)!)
         collectionView?.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 50, 0)
         collectionView?.register(PeripheralCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
@@ -78,13 +77,17 @@ class PeripheralCollectionViewController: UICollectionViewController, UICollecti
         setupViews()
         
         peripheralBLEController.delegate = self
-        peripheralBLEController.startPeripheralManager()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
                 
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        peripheralBLEController.startPeripheralManager()
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer? = nil) {        
@@ -178,7 +181,6 @@ class PeripheralCollectionViewController: UICollectionViewController, UICollecti
         
         containerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        //        containerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         containerViewBottomAnchor = containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         containerViewBottomAnchor?.isActive = true
     }

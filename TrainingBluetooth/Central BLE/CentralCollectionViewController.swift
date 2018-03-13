@@ -16,27 +16,45 @@ class CentralCollectionViewController: UICollectionViewController, UICollectionV
     
     private var centralBLEcontroller = CentralBLEController()
     
+    lazy var infoButton: UIButton = {
+        let button = UIButton(type: .infoLight)
+        button.addTarget(self, action: #selector(handleInfoButton), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView?.backgroundColor = .white
         navigationItem.title = "Central"
         
-        let infoButton = UIButton(type: .infoLight)
-        
-        // You will need to configure the target action for the button itself, not the bar button itemr
-//        infoButton.addTarget(self, action: #selector(getInfoAction), for: .touchUpInside)
-        
-        // Create a bar button item using the info button as its custom view
-        let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
-        
-        // Use it as required
-        navigationItem.rightBarButtonItem = infoBarButtonItem
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
         
         centralBLEcontroller.delegate = self
-        centralBLEcontroller.startCentralManager()
+//        centralBLEcontroller.startCentralManager()
         
         collectionView?.register(CentralCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        centralBLEcontroller.startCentralManager()
+    }
+    
+    @objc func handleInfoButton() {        
+        if let keyWindow = UIApplication.shared.keyWindow{
+            let infoView = ConnectionInfoBLE(frame: keyWindow.frame)
+            infoView.setupData(connectedTo: centralBLEcontroller.peripheralDevice, RSSI: centralBLEcontroller.peripheralRSSI)
+            infoView.translatesAutoresizingMaskIntoConstraints = false
+
+            keyWindow.addSubview(infoView)
+            
+            infoView.rightAnchor.constraint(equalTo: keyWindow.rightAnchor).isActive = true
+            infoView.leftAnchor.constraint(equalTo: keyWindow.leftAnchor).isActive = true
+            infoView.bottomAnchor.constraint(equalTo: keyWindow.bottomAnchor).isActive = true
+            infoView.topAnchor.constraint(equalTo: keyWindow.topAnchor).isActive = true
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

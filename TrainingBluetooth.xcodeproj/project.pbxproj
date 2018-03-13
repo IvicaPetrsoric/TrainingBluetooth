@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E2FA7402056DA8D00EAF503 /* CentralCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FA73F2056DA8D00EAF503 /* CentralCollectionViewCell.swift */; };
+		9E2FA74220570A0B00EAF503 /* ConnectionInfoBLE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2FA74120570A0B00EAF503 /* ConnectionInfoBLE.swift */; };
 		9E355BC62053FA6C00A1427D /* PeripheralBLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E355BC52053FA6C00A1427D /* PeripheralBLEController.swift */; };
 		9E355BC82054445E00A1427D /* PeripheralViewInputAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E355BC72054445E00A1427D /* PeripheralViewInputAccessory.swift */; };
 		9E355BCA20544D5E00A1427D /* PeripheralViewTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E355BC920544D5E00A1427D /* PeripheralViewTextView.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		9E2FA73F2056DA8D00EAF503 /* CentralCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralCollectionViewCell.swift; sourceTree = "<group>"; };
+		9E2FA74120570A0B00EAF503 /* ConnectionInfoBLE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionInfoBLE.swift; sourceTree = "<group>"; };
 		9E355BC52053FA6C00A1427D /* PeripheralBLEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralBLEController.swift; sourceTree = "<group>"; };
 		9E355BC72054445E00A1427D /* PeripheralViewInputAccessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralViewInputAccessory.swift; sourceTree = "<group>"; };
 		9E355BC920544D5E00A1427D /* PeripheralViewTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralViewTextView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E2FA74320570EEE00EAF503 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E3CFCE32052B57800A12602 /* SetupData.swift */,
+				9E642AE02055B9E600625551 /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9E3CFCAD2052901800A12602 = {
 			isa = PBXGroup;
 			children = (
@@ -82,8 +93,7 @@
 			children = (
 				9E3CFCB92052901800A12602 /* AppDelegate.swift */,
 				9E3CFCCC2052913700A12602 /* MainTabBarViewController.swift */,
-				9E3CFCE32052B57800A12602 /* SetupData.swift */,
-				9E642AE02055B9E600625551 /* Post.swift */,
+				9E2FA74320570EEE00EAF503 /* Model */,
 				9E3CFCD52052954F00A12602 /* Central BLE */,
 				9E3CFCD62052955900A12602 /* PeripheralBLE */,
 				9E3CFCCB2052910000A12602 /* Supporting Files */,
@@ -95,6 +105,7 @@
 		9E3CFCCB2052910000A12602 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9E2FA74120570A0B00EAF503 /* ConnectionInfoBLE.swift */,
 				9E3CFCDB20529DED00A12602 /* Extension.swift */,
 				9E3CFCE72052F24100A12602 /* BaseView.swift */,
 				9E642ADE2055B6E800625551 /* BaseCell.swift */,
@@ -200,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E3CFCCD2052913700A12602 /* MainTabBarViewController.swift in Sources */,
+				9E2FA74220570A0B00EAF503 /* ConnectionInfoBLE.swift in Sources */,
 				9E3CFCCF205292D500A12602 /* CentralCollectionViewController.swift in Sources */,
 				9E3CFCE22052B30B00A12602 /* CentralBLEController.swift in Sources */,
 				9E642AE12055B9E600625551 /* Post.swift in Sources */,

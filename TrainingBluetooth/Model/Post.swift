@@ -13,5 +13,4 @@ struct Post {
     let text: String?
     let image: UIImage?
 
-
 }
