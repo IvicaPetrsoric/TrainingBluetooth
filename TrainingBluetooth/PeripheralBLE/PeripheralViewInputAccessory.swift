@@ -16,13 +16,13 @@ class PeripheralViewInputAccessory: BaseView {
     
     var delegate: PeripheralViewInputAccessoryDelegate?
     
-    let submitImage: UIButton = {
-        let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "camera").withRenderingMode(.alwaysOriginal), for: .normal)
-        button.addTarget(self, action: #selector(handleCamera), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    let submitImage: UIButton = {
+//        let button = UIButton()
+//        button.setImage(#imageLiteral(resourceName: "camera").withRenderingMode(.alwaysOriginal), for: .normal)
+//        button.addTarget(self, action: #selector(handleCamera), for: .touchUpInside)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
     
     let submitTextView: PeripheralViewTextView = {
         let tv = PeripheralViewTextView()
@@ -64,15 +64,15 @@ class PeripheralViewInputAccessory: BaseView {
         
         autoresizingMask = .flexibleHeight
         
-        addSubview(submitImage)
+//        addSubview(submitImage)
         addSubview(submitButton)
         addSubview(submitTextView)
         addSubview(activityIndicator)
         
-        submitImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
-        submitImage.topAnchor.constraint(equalTo: topAnchor, constant: 4).isActive = true
-        submitImage.heightAnchor.constraint(equalToConstant: 42).isActive = true
-        submitImage.widthAnchor.constraint(equalToConstant: 42).isActive = true
+//        submitImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
+//        submitImage.topAnchor.constraint(equalTo: topAnchor, constant: 4).isActive = true
+//        submitImage.heightAnchor.constraint(equalToConstant: 42).isActive = true
+//        submitImage.widthAnchor.constraint(equalToConstant: 42).isActive = true
         
         submitButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
         submitButton.topAnchor.constraint(equalTo: topAnchor, constant: 4).isActive = true
@@ -81,7 +81,7 @@ class PeripheralViewInputAccessory: BaseView {
         
         submitTextView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
         submitTextView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
-        submitTextView.leftAnchor.constraint(equalTo: submitImage.rightAnchor, constant: 8).isActive = true
+        submitTextView.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
         submitTextView.rightAnchor.constraint(equalTo: submitButton.leftAnchor, constant: -8).isActive = true
         
         activityIndicator.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
