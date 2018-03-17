@@ -13,17 +13,17 @@ class PeripheralCollectionViewController: UICollectionViewController, UICollecti
     func bleAvailabel(status: Bool) {
         bleOn = status
     }
-
+    
     var bleOn = Bool()
     
     func postSended(_ success: Bool) {
         containerView.showActivityIndicator(show: false)
-
+        
         if success {
             containerView.postSuccessfullySended()
             collectionView?.reloadData()
             showLastPost()
-
+            
         } else {
             posts.removeLast()
             showAllert(message: alertMessage.errorWithSendingPost.rawValue)
@@ -65,7 +65,7 @@ class PeripheralCollectionViewController: UICollectionViewController, UICollecti
         super.viewDidLoad()
         
         navigationItem.title = "Peripheral"
-
+        
         collectionView?.backgroundColor = .white
         collectionView?.keyboardDismissMode = .interactive
         collectionView?.alwaysBounceVertical = true
@@ -80,7 +80,9 @@ class PeripheralCollectionViewController: UICollectionViewController, UICollecti
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
-                
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeInputMode), name: .UITextInputCurrentInputModeDidChange, object: nil)
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
     }
@@ -90,7 +92,7 @@ class PeripheralCollectionViewController: UICollectionViewController, UICollecti
         peripheralBLEController.startPeripheralManager()
     }
     
-    @objc func handleTap(sender: UITapGestureRecognizer? = nil) {        
+    @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
         guard let location = sender?.location(in: self.view)  else { return }
         
         if !containerView.frame.contains(location) {
@@ -137,13 +139,28 @@ class PeripheralCollectionViewController: UICollectionViewController, UICollecti
         }
     }
     
+    var emojiActive = false
+    
+    @objc func changeInputMode(notification : NSNotification) {
+        let inputMode =  containerView.submitTextView.textInputMode?.primaryLanguage
+        //        print("inputMethod: \(inputMode)")
+        
+        emojiActive = inputMode == nil  ? true : false
+        
+        print("Emoji active: \(emojiActive)")
+    }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
+        print("Keyboard will show")
         containerViewBottomAnchor?.isActive = false
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-           
-            let addHeight = keyboardSize.height - 50
-            self.containerViewBottomAnchor?.constant = -addHeight
+            //           print(keyboardSize.height)
+            //            if emojiActive
+            let keyboardHeight = emojiActive ?  258.0 : 216.0
+            
+            let addHeight = keyboardHeight - 50
+            self.containerViewBottomAnchor?.constant = CGFloat(-addHeight)
             self.containerViewBottomAnchor?.isActive = true
             
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
@@ -157,6 +174,7 @@ class PeripheralCollectionViewController: UICollectionViewController, UICollecti
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
+        print("Keyboard will hide ")
         containerViewBottomAnchor?.isActive = false
         
         if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
@@ -185,3 +203,4 @@ class PeripheralCollectionViewController: UICollectionViewController, UICollecti
         containerViewBottomAnchor?.isActive = true
     }
 }
+
